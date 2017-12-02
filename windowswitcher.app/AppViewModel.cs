@@ -25,7 +25,12 @@ namespace windowswitcher.app
         {
             switcher = _switcher;
             Title = "windowswitcher";
-            Activate = new LambdaCommand(window => switcher.ActivateWindow((IWindow)window), window => window is IWindow);
+            Activate = new LambdaCommand(_ =>
+            {
+                var window = SelectedWindow == null ? windows[0] : SelectedWindow;
+                switcher.ActivateWindow(window);
+                App.Current.Shutdown(0);
+            }, _ => windows.Count > 0 || SelectedWindow != null);
             windows = new ObservableCollection<IWindow>(switcher.GetWindows()); //TODO: make it async if the swithcer is not performant
         }
 
@@ -42,6 +47,18 @@ namespace windowswitcher.app
                 RaisePropertyChangedEvent("Windows");
             }
         }
+
+        private IWindow selectedWindow;
+        public IWindow SelectedWindow
+        {
+            get { return selectedWindow; }
+            set
+            {
+                selectedWindow = value;
+                RaisePropertyChangedEvent("SelectedWindow");
+            }
+        }
+
 
         private ObservableCollection<IWindow> windows;
         public ICollectionView Windows

@@ -20,25 +20,20 @@
             <RowDefinition Height="24"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="0" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
-        <ItemsControl
-            Grid.Row="1"
-            ItemsSource="{Binding Windows}"
-            >
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="8,8,8,8">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="64"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Title}" FontSize="14" FontWeight="Light"/>
-                        <Button Grid.Column="1" 
-                                Command="{Binding DataContext.Activate, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
-                                CommandParameter="{Binding}">ACTIVATE</Button>
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="64"/>
+            </Grid.ColumnDefinitions>
+            <TextBox 
+                Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                Grid.Column="0"/>
+            <Button Grid.Column="1" Command="{Binding Activate}" IsDefault="True">ACTIVATE</Button>
+        </Grid>
+        <ListView Grid.Row="1" 
+                  ItemsSource="{Binding Windows}" 
+                  SelectedItem="{Binding SelectedWindow}"
+                  DisplayMemberPath="Title">
+        </ListView>
     </Grid>
 </Window>
