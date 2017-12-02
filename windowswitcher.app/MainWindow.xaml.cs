@@ -23,11 +23,14 @@ namespace windowswitcher.app
         public MainWindow()
         {
             InitializeComponent();
+            this.txtSearch.Focus();
         }
 
         private void OnCloseExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             this.Close();
         }
+
+
     }
 }

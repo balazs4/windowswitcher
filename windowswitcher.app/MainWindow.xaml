@@ -26,6 +26,7 @@
                 <ColumnDefinition Width="64"/>
             </Grid.ColumnDefinitions>
             <TextBox 
+                Name="txtSearch"
                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                 Grid.Column="0"/>
             <Button Grid.Column="1" Command="{Binding Activate}" IsDefault="True">ACTIVATE</Button>
