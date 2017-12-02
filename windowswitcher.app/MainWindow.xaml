@@ -5,7 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="{Binding Title}"
-        Height="350" Width="525">
+        Height="350" Width="525"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        WindowStyle="None">
+    <Window.CommandBindings>
+        <CommandBinding Command="Close" Executed="OnCloseExecuted" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="Close" Key="Esc" />
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="24"/>
