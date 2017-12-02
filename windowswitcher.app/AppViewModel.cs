@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Data;
 using System.Windows.Input;
 using windowswitcher;
 
@@ -18,16 +19,14 @@ namespace windowswitcher.app
 
     public class AppViewModel : ViewModel
     {
-        private readonly IDispatcherService dispatcher;
         private readonly IWindowSwitcher switcher;
 
-        public AppViewModel(IDispatcherService _dispatcher, IWindowSwitcher _switcher)
+        public AppViewModel(IWindowSwitcher _switcher)
         {
-            dispatcher = _dispatcher;
             switcher = _switcher;
             Title = "windowswitcher";
-            windows = new ObservableCollection<IWindow>(switcher.QueryWindows()); //TODO: make it async if the swithcer is not performant
             Activate = new LambdaCommand(window => switcher.ActivateWindow((IWindow)window), window => window is IWindow);
+            windows = new ObservableCollection<IWindow>(switcher.QueryWindows()); //TODO: make it async if the swithcer is not performant
         }
 
         public string Title { get; private set; }
@@ -40,17 +39,25 @@ namespace windowswitcher.app
             {
                 searchText = value;
                 RaisePropertyChangedEvent("SearchText");
+                RaisePropertyChangedEvent("Windows");
             }
         }
 
         private ObservableCollection<IWindow> windows;
-        public ObservableCollection<IWindow> Windows
+        public ICollectionView Windows
         {
-            get { return windows; }
-            set
+            get
             {
-                windows = value;
-                RaisePropertyChangedEvent("Candidates");
+                var filtering = CollectionViewSource.GetDefaultView(windows);
+                filtering.Filter = item =>
+                {
+                    var window = item as IWindow;
+                    if (window == null) return true;
+                    if (string.IsNullOrWhiteSpace(SearchText)) return true;
+                    if (string.IsNullOrWhiteSpace(window.Title)) return true;
+                    return window.Title.ToLower().Contains(SearchText.ToLower());
+                };
+                return filtering;
             }
         }
 
