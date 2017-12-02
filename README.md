@@ -2,4 +2,9 @@
 
 # windowswitcher
 
+# Technologies used
++ MUSIA  for Finding and activating the windows / controls
+
+
+
 > window switcher for Microsoft Windows
