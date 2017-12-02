@@ -23,10 +23,10 @@ namespace windowswitcher.app
 
         public AppViewModel(IDispatcherService _dispatcher, IWindowSwitcher _switcher)
         {
-            windows = new ObservableCollection<IWindow>();
             dispatcher = _dispatcher;
             switcher = _switcher;
             Title = "windowswitcher";
+            windows = new ObservableCollection<IWindow>(switcher.QueryWindows()); //TODO: make it async if the swithcer is not performant
             Activate = new LambdaCommand(window => switcher.ActivateWindow((IWindow)window), window => window is IWindow);
         }
 
