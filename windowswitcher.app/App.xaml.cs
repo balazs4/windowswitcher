@@ -55,9 +55,8 @@ namespace windowswitcher.app
     {
         public void ActivateWindow(IWindow window_in) => MessageBox.Show("Activate " + window_in.Title);
 
-        public IEnumerable<IWindow> GetWindowsUnderCurrentDesktop() => throw new NotImplementedException();
-
-        public IEnumerable<IWindow> QueryWindows() => Enumerable.Range(0, 16).Select(MockWindow.Create);
+     
+        public IEnumerable<IWindow> GetWindows() => Enumerable.Range(0, 16).Select(MockWindow.Create);
     }
 
     public class MockWindow : IWindow
@@ -67,7 +66,5 @@ namespace windowswitcher.app
         public static IWindow Create(int number) => new MockWindow { Title = $"{text[number % text.Length]} {number}" };
 
         public string Title { get; private set; }
-
-        public string Desktop { get; private set; }
     }
 }

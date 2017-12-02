@@ -26,7 +26,7 @@ namespace windowswitcher.app
             switcher = _switcher;
             Title = "windowswitcher";
             Activate = new LambdaCommand(window => switcher.ActivateWindow((IWindow)window), window => window is IWindow);
-            windows = new ObservableCollection<IWindow>(switcher.QueryWindows()); //TODO: make it async if the swithcer is not performant
+            windows = new ObservableCollection<IWindow>(switcher.GetWindows()); //TODO: make it async if the swithcer is not performant
         }
 
         public string Title { get; private set; }

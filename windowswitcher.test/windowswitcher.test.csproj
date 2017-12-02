@@ -45,12 +45,19 @@
   <ItemGroup>
     <Compile Include="Foobar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowSwitcherTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\windowswitcher\windowswitcher.csproj">
+      <Project>{2969df77-1efc-42ed-a829-8cffd6bdcefc}</Project>
+      <Name>windowswitcher</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
