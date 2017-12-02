@@ -124,6 +124,7 @@
     <ProjectReference Include="..\windowswitcher\windowswitcher.csproj">
       <Project>{2969df77-1efc-42ed-a829-8cffd6bdcefc}</Project>
       <Name>windowswitcher</Name>
+      <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
