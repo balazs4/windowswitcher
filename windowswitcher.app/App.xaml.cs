@@ -21,7 +21,7 @@ namespace windowswitcher.app
 
             IUnityContainer ioc = new UnityContainer();
             ioc.RegisterType<IDispatcherService, DispatcherService>();
-            ioc.RegisterType<IWindowSwitcher, MockWindowSwitcher>();
+            ioc.RegisterType<IWindowSwitcher, WindowSwitcher>();
             ioc.RegisterInstance(Current.Dispatcher);
             var appwindow = new MainWindow
             {
@@ -54,8 +54,7 @@ namespace windowswitcher.app
     public class MockWindowSwitcher : IWindowSwitcher
     {
         public void ActivateWindow(IWindow window_in) => MessageBox.Show("Activate " + window_in.Title);
-
-     
+    
         public IEnumerable<IWindow> GetWindows() => Enumerable.Range(0, 16).Select(MockWindow.Create);
     }
 

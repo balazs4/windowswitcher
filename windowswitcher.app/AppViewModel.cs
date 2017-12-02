@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Input;
 using windowswitcher;
@@ -27,10 +28,10 @@ namespace windowswitcher.app
             Title = "windowswitcher";
             Activate = new LambdaCommand(_ =>
             {
-                var window = SelectedWindow == null ? windows[0] : SelectedWindow;
-                switcher.ActivateWindow(window);
-                App.Current.Shutdown(0);
-            }, _ => windows.Count > 0 || SelectedWindow != null);
+                switcher.ActivateWindow(SelectedWindow);
+                App.Current.Shutdown();
+            },
+                _ => SelectedWindow != null);
             windows = new ObservableCollection<IWindow>(switcher.GetWindows()); //TODO: make it async if the swithcer is not performant
         }
 
@@ -74,6 +75,7 @@ namespace windowswitcher.app
                     if (string.IsNullOrWhiteSpace(window.Title)) return true;
                     return window.Title.ToLower().Contains(SearchText.ToLower());
                 };
+                SelectedWindow = filtering.CurrentItem as IWindow;
                 return filtering;
             }
         }
