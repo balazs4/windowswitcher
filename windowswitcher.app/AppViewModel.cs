@@ -5,6 +5,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Linq;
 using windowswitcher;
+using System;
 
 namespace windowswitcher.app
 {
@@ -27,13 +28,17 @@ namespace windowswitcher.app
         {
             switcher = _switcher;
             Title = "windowswitcher";
+            windows = new ObservableCollection<IWindow>(switcher.GetWindows());
             Activate = new LambdaCommand(_ =>
             {
                 switcher.ActivateWindow(SelectedWindow);
                 App.Current.Shutdown();
-            },
-                _ => SelectedWindow != null);
-            windows = new ObservableCollection<IWindow>(switcher.GetWindows()); //TODO: make it async if the swithcer is not performant
+            },_ => SelectedWindow != null);
+
+            OpenLink = new LambdaCommand(_ =>
+            {
+                System.Diagnostics.Process.Start("https://github.com/balazs4/windowswitcher/");
+            });
         }
 
         public string Title { get; private set; }
@@ -83,7 +88,9 @@ namespace windowswitcher.app
             }
         }
 
+
         public ICommand Activate { get; private set; }
+        public ICommand OpenLink { get; private set; }
     }
 }
 

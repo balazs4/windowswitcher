@@ -25,29 +25,49 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="32px"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="2">
+        <Grid Grid.Row="0" Margin="0,0,0,16">
+            <StackPanel HorizontalAlignment="Center" 
+                        Orientation="Horizontal">
+                <Image Source="Elegantthemes-Beautiful-Flat-Frames.ico"
+                   Height="32"
+                   Width="32"
+                   Margin="0,0,16,0"/>
+                <TextBlock Text="{Binding Title}"
+                       Foreground="{x:Static SystemColors.WindowBrush}"
+                       FontWeight="UltraLight"
+                       FontSize="24"
+                       />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Margin="2">
             <Button Command="{Binding Activate}" IsDefault="True">ACTIVATE</Button>
             <TextBox
+                Margin="4"
                 Name="txtSearch"
                 FontSize="32"
                 FontWeight="Light"
                 BorderThickness="0"
                 Background="{x:Static SystemColors.WindowBrush}"
-                Foreground="{x:Static SystemColors.WindowFrameBrush}"
+                Foreground="{x:Static SystemColors.WindowTextBrush}"
                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
-        <ListView Grid.Row="1"
+        <ListView Grid.Row="2"
                   Margin="2,16"
                   ItemsSource="{Binding Windows}" 
                   SelectedItem="{Binding SelectedWindow}"
                   SelectionMode="Single"
                   BorderThickness="0"
-                  Background="{x:Static SystemColors.WindowFrameBrush}"
-                  Foreground="{x:Static SystemColors.WindowBrush}">
+                  Background="{x:Static SystemParameters.WindowGlassBrush}"
+                  Foreground="{x:Static SystemColors.WindowBrush}"
+                  ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                  Opacity="0.8">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock 
+                    <TextBlock
                         Text="{Binding Title}" 
                         FontSize="18" 
                         FontWeight="UltraLight"
@@ -55,5 +75,20 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Grid Grid.Row="3" >
+            <Button HorizontalAlignment="Right" Command="{Binding OpenLink}"
+                    Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid>
+                            <TextBlock  
+                               Text="https://github.com/balazs4/windowswitcher/"
+                               Foreground="{x:Static SystemColors.ControlTextBrush}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        
     </Grid>
 </Window>
