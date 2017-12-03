@@ -3,6 +3,7 @@ configuration: Release
 platform: Any CPU
 version: 1.0.{build}
 clone_depth: 1
+skip_tags: true
 
 before_build:
   - nuget restore
