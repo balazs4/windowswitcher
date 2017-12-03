@@ -82,6 +82,7 @@
                     <ControlTemplate>
                         <Grid>
                             <TextBlock  
+                               Opacity="0.2"
                                Text="https://github.com/balazs4/windowswitcher/"
                                Foreground="{x:Static SystemColors.WindowBrush}"/>
                         </Grid>
