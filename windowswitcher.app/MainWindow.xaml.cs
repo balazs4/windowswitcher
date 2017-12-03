@@ -24,9 +24,6 @@ namespace windowswitcher.app
         {
             InitializeComponent();
             this.txtSearch.Focus();
-            var background = SystemParameters.WindowGlassBrush.Clone();
-            background.Opacity = 0.8;
-            this.Background = background;
         }
 
         private void OnCloseExecuted(object sender, ExecutedRoutedEventArgs e)

@@ -10,34 +10,43 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         AllowsTransparency="True">
+    <Window.Background>
+        <SolidColorBrush 
+            Color="{x:Static SystemParameters.WindowGlassColor}"
+            Opacity="0.95"/>
+    </Window.Background>
     <Window.CommandBindings>
         <CommandBinding Command="Close" Executed="OnCloseExecuted" />
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="Close" Key="Esc" />
     </Window.InputBindings>
-    <Grid Width="640" Margin="0,128">
+    <Grid Margin="128">
         <Grid.RowDefinitions>
-            <RowDefinition Height="48"/>
+            <RowDefinition Height="64"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="0"/>
-            </Grid.ColumnDefinitions>
-            <TextBox 
+            <Button Command="{Binding Activate}" IsDefault="True">ACTIVATE</Button>
+            <TextBox
                 Name="txtSearch"
                 FontSize="32"
                 FontWeight="Light"
                 BorderThickness="0"
-                Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
-                Grid.Column="0"/>
-            <Button Grid.Column="1" Command="{Binding Activate}" IsDefault="True">ACTIVATE</Button>
+                Background="{x:Static SystemColors.WindowFrameBrush}"
+                Foreground="{x:Static SystemColors.WindowBrush}"
+                Padding="2"
+                Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
         <ListView Grid.Row="1"
+                  Padding="4"
                   ItemsSource="{Binding Windows}" 
                   SelectedItem="{Binding SelectedWindow}"
+                  FontSize="16"
+                  FontWeight="Regular"
+                  SelectionMode="Single"
+                  Background="{x:Static SystemColors.WindowBrush}"
+                  Foreground="{x:Static SystemColors.WindowFrameBrush}"
                   DisplayMemberPath="Title">
         </ListView>
     </Grid>
