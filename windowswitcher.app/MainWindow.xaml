@@ -7,6 +7,7 @@
         Title="{Binding Title}"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
+        ResizeMode="NoResize"
         WindowStyle="None"
         AllowsTransparency="True">
     <Window.CommandBindings>
@@ -15,10 +16,10 @@
     <Window.InputBindings>
         <KeyBinding Command="Close" Key="Esc" />
     </Window.InputBindings>
-    <Grid Height="350" Width="525">
+    <Grid Width="640" Margin="0,128">
         <Grid.RowDefinitions>
-            <RowDefinition Height="24"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="48"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
@@ -27,11 +28,14 @@
             </Grid.ColumnDefinitions>
             <TextBox 
                 Name="txtSearch"
+                FontSize="32"
+                FontWeight="Light"
+                BorderThickness="0"
                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                 Grid.Column="0"/>
             <Button Grid.Column="1" Command="{Binding Activate}" IsDefault="True">ACTIVATE</Button>
         </Grid>
-        <ListView Grid.Row="1" 
+        <ListView Grid.Row="1"
                   ItemsSource="{Binding Windows}" 
                   SelectedItem="{Binding SelectedWindow}"
                   DisplayMemberPath="Title">

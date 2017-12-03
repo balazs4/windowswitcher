@@ -33,7 +33,5 @@ namespace windowswitcher.app
         {
             this.Close();
         }
-
-
     }
 }
