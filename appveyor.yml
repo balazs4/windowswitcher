@@ -11,7 +11,7 @@ build:
   verbosity: minimal
 
 after_build:
-  - 7z a windowswitcher.zip %APPVEYOR_BUILD_FOLDER%\\windowswitcher.app\bin\Release\*.*
+  - 7z a .\windowswitcher.zip %APPVEYOR_BUILD_FOLDER%\\windowswitcher.app\bin\Release\*.*
 
 assembly_info:
   patch: true
@@ -25,7 +25,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: uG/EbklyR/JLrHlnpnBTnVFyY1o9i2A61ceZ2NjJMkFSQO+oORMADOx/+3AP1LkK
-  artifact: windowswitcher.zip
+  artifact: .\windowswitcher.zip
   draft: true
   on:
     branch: master
