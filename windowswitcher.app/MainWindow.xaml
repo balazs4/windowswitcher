@@ -83,7 +83,7 @@
                         <Grid>
                             <TextBlock  
                                Text="https://github.com/balazs4/windowswitcher/"
-                               Foreground="{x:Static SystemColors.ControlTextBrush}"/>
+                               Foreground="{x:Static SystemColors.WindowBrush}"/>
                         </Grid>
                     </ControlTemplate>
                 </Button.Template>
