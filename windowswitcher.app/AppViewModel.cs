@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Linq;
 using windowswitcher;
 using System;
+using System.Reflection;
 
 namespace windowswitcher.app
 {
@@ -27,7 +28,7 @@ namespace windowswitcher.app
         public AppViewModel(IWindowSwitcher _switcher)
         {
             switcher = _switcher;
-            Title = "windowswitcher";
+            Title = $"windowswitcher v{Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
             windows = new ObservableCollection<IWindow>(switcher.GetWindows());
             Activate = new LambdaCommand(_ =>
             {
