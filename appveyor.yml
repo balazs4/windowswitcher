@@ -1,7 +1,7 @@
 image: Visual Studio 2017
 configuration: Release
 platform: Any CPU
-version: 1.{branch}.{build}
+version: 1.0.{build}
 clone_depth: 1
 
 before_build:
