@@ -11,10 +11,10 @@ build:
   verbosity: minimal
 
 after_build:
-  - 7z a windowswitcher.zip %APPVEYOR_BUILD_FOLDER%\\windowswitcher.app\bin\Release\*.*
+  - 7z a windowswitcher-v%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\\windowswitcher.app\bin\Release\*.*
 
 artifacts:
-  - path: windowswitcher.zip
+  - path: windowswitcher-v$(appveyor_build_version).zip
 
 assembly_info:
   patch: true
@@ -23,8 +23,8 @@ assembly_info:
   assembly_file_version: $(appveyor_build_version)
 
 deploy:
-  release: windowswitcher-v$(appveyor_build_version)
-  description: windowswitcher-v$(appveyor_build_version)
+  release: v$(appveyor_build_version)
+  description: v$(appveyor_build_version)
   provider: GitHub
   auth_token:
     secure: uG/EbklyR/JLrHlnpnBTnVFyY1o9i2A61ceZ2NjJMkFSQO+oORMADOx/+3AP1LkK
