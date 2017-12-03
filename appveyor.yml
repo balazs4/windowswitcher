@@ -21,6 +21,7 @@ assembly_info:
   file: AssemblyInfo.*
   assembly_version: $(appveyor_build_version)
   assembly_file_version: $(appveyor_build_version)
+  assembly_copyright: MIT
 
 deploy:
   release: v$(appveyor_build_version)

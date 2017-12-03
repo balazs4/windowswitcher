@@ -29,6 +29,7 @@
             <RowDefinition Height="32px"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Margin="0,0,0,16">
+            <Button Width="0" Height="0" Command="{Binding Activate}" IsDefault="True">ACTIVATE</Button>
             <StackPanel HorizontalAlignment="Center" 
                         Orientation="Horizontal">
                 <Image Source="Elegantthemes-Beautiful-Flat-Frames.ico"
@@ -43,7 +44,6 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1" Margin="2">
-            <Button Command="{Binding Activate}" IsDefault="True">ACTIVATE</Button>
             <TextBox
                 Margin="4"
                 Name="txtSearch"
@@ -90,6 +90,6 @@
                 </Button.Template>
             </Button>
         </Grid>
-        
+
     </Grid>
 </Window>
