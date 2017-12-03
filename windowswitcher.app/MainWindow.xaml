@@ -13,7 +13,7 @@
     <Window.Background>
         <SolidColorBrush 
             Color="{x:Static SystemParameters.WindowGlassColor}"
-            Opacity="0.95"/>
+            Opacity="0.99"/>
     </Window.Background>
     <Window.CommandBindings>
         <CommandBinding Command="Close" Executed="OnCloseExecuted" />
@@ -21,33 +21,39 @@
     <Window.InputBindings>
         <KeyBinding Command="Close" Key="Esc" />
     </Window.InputBindings>
-    <Grid Margin="128">
+    <Grid Margin="256,128">
         <Grid.RowDefinitions>
-            <RowDefinition Height="64"/>
-            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Margin="2">
             <Button Command="{Binding Activate}" IsDefault="True">ACTIVATE</Button>
             <TextBox
                 Name="txtSearch"
                 FontSize="32"
                 FontWeight="Light"
                 BorderThickness="0"
-                Background="{x:Static SystemColors.WindowFrameBrush}"
-                Foreground="{x:Static SystemColors.WindowBrush}"
-                Padding="2"
+                Background="{x:Static SystemColors.WindowBrush}"
+                Foreground="{x:Static SystemColors.WindowFrameBrush}"
                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
         <ListView Grid.Row="1"
-                  Padding="4"
+                  Margin="2,16"
                   ItemsSource="{Binding Windows}" 
                   SelectedItem="{Binding SelectedWindow}"
-                  FontSize="16"
-                  FontWeight="Regular"
                   SelectionMode="Single"
-                  Background="{x:Static SystemColors.WindowBrush}"
-                  Foreground="{x:Static SystemColors.WindowFrameBrush}"
-                  DisplayMemberPath="Title">
+                  BorderThickness="0"
+                  Background="{x:Static SystemColors.WindowFrameBrush}"
+                  Foreground="{x:Static SystemColors.WindowBrush}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock 
+                        Text="{Binding Title}" 
+                        FontSize="18" 
+                        FontWeight="UltraLight"
+                        Margin="0,4"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Window>
