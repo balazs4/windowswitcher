@@ -25,10 +25,24 @@ namespace windowswitcher.app
     {
         private readonly IWindowSwitcher switcher;
 
+        private string GetVersion()
+        {
+            try
+            {
+                var version = Assembly.GetExecutingAssembly().GetName().Version;
+                return $"{version.Major}.{version.Minor}.{version.Revision}";
+            }
+            catch (Exception)
+            {
+                return "0.0.0";
+            }
+        }
+
         public AppViewModel(IWindowSwitcher _switcher)
         {
+
             switcher = _switcher;
-            Title = $"windowswitcher v{Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+            Title = $"windowswitcher v{GetVersion()}";
             windows = new ObservableCollection<IWindow>(switcher.GetWindows());
             Activate = new LambdaCommand(_ =>
             {
