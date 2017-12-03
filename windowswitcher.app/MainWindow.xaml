@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="{Binding Title}"
-        Height="350" Width="525"
         WindowStartupLocation="CenterScreen"
-        WindowState="Normal"
-        WindowStyle="None">
+        WindowState="Maximized"
+        WindowStyle="None"
+        AllowsTransparency="True">
     <Window.CommandBindings>
         <CommandBinding Command="Close" Executed="OnCloseExecuted" />
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="Close" Key="Esc" />
     </Window.InputBindings>
-    <Grid>
+    <Grid Height="350" Width="525">
         <Grid.RowDefinitions>
             <RowDefinition Height="24"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="64"/>
+                <ColumnDefinition Width="0"/>
             </Grid.ColumnDefinitions>
             <TextBox 
                 Name="txtSearch"
