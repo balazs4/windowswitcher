@@ -131,7 +131,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Elegantthemes-Beautiful-Flat-Browser.ico" />
     <Resource Include="Elegantthemes-Beautiful-Flat-Frames.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

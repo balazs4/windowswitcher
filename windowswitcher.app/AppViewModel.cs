@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Linq;
 using windowswitcher;
 
 namespace windowswitcher.app
@@ -73,7 +74,9 @@ namespace windowswitcher.app
                     if (window == null) return true;
                     if (string.IsNullOrWhiteSpace(SearchText)) return true;
                     if (string.IsNullOrWhiteSpace(window.Title)) return true;
-                    return window.Title.ToLower().Contains(SearchText.ToLower());
+                    var terms = SearchText.Split(' ').Select(x => x.ToLower());
+                    var title = window.Title.ToLower();
+                    return terms.All(x => title.Contains(x));
                 };
                 SelectedWindow = filtering.CurrentItem as IWindow;
                 return filtering;
