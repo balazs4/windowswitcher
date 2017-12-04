@@ -54,6 +54,27 @@ namespace windowswitcher.app
             {
                 System.Diagnostics.Process.Start("https://github.com/balazs4/windowswitcher/");
             });
+
+            SelectPrev = new LambdaCommand(_ =>
+            {
+                if(!Windows.MoveCurrentToPrevious())
+                {
+                    //hacky tracky workaround works :D
+                    Windows.MoveCurrentToNext();
+                }
+                RaisePropertyChangedEvent("Windows");
+            });
+
+            SelectNext = new LambdaCommand(_ =>
+             {
+                 if (!Windows.MoveCurrentToNext())
+                 {
+                     //hacky tracky workaround works :D
+                     Windows.MoveCurrentToPrevious();
+                 }
+                 RaisePropertyChangedEvent("Windows");
+             }
+            );
         }
 
         public string Title { get; private set; }
@@ -103,6 +124,10 @@ namespace windowswitcher.app
             }
         }
 
+
+        public ICommand SelectNext { get; private set; }
+
+        public ICommand SelectPrev { get; private set; }
 
         public ICommand Activate { get; private set; }
         public ICommand OpenLink { get; private set; }

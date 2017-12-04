@@ -52,7 +52,12 @@
                 BorderThickness="0"
                 Background="{x:Static SystemColors.WindowBrush}"
                 Foreground="{x:Static SystemColors.ControlTextBrush}"
-                Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" >
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Up" Command="{Binding Path=SelectPrev}" />
+                    <KeyBinding Key="Down" Command="{Binding Path=SelectNext}" />
+                </TextBox.InputBindings>
+            </TextBox>
         </Grid>
         <ListView Grid.Row="2"
                   Margin="2,16"
@@ -65,6 +70,10 @@
                   ScrollViewer.VerticalScrollBarVisibility="Disabled"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                   Opacity="0.8">
+            <ListView.InputBindings>
+                <KeyBinding Key="Up" Command="{Binding Path=SelectPrev}" />
+                <KeyBinding Key="Down" Command="{Binding Path=SelectNext}" />
+            </ListView.InputBindings>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock
