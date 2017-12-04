@@ -51,7 +51,7 @@
                 FontWeight="Light"
                 BorderThickness="0"
                 Background="{x:Static SystemColors.WindowBrush}"
-                Foreground="{x:Static SystemColors.WindowTextBrush}"
+                Foreground="{x:Static SystemColors.ControlTextBrush}"
                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
         <ListView Grid.Row="2"
@@ -61,7 +61,7 @@
                   SelectionMode="Single"
                   BorderThickness="0"
                   Background="{x:Static SystemParameters.WindowGlassBrush}"
-                  Foreground="{x:Static SystemColors.WindowBrush}"
+                  Foreground="{x:Static SystemColors.ControlTextBrush}"
                   ScrollViewer.VerticalScrollBarVisibility="Disabled"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                   Opacity="0.8">

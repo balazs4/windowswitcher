@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,8 +75,8 @@ namespace windowswitcher
             foreach (AutomationElement aEm in FoundWindows)
             {
                 Console.WriteLine($"{WindowSwitcherLogDomain} FoundWindow {aEm}");
-
-                AllWindows.Add(new Window(aEm.Current.Name, String.Empty, aEm.Current.NativeWindowHandle));
+                var procname = Process.GetProcessById(aEm.Current.ProcessId).ProcessName;
+                AllWindows.Add(new Window(aEm.Current.Name+ $"  Process:{procname}", String.Empty, aEm.Current.NativeWindowHandle));
             }
 
             return AllWindows;
