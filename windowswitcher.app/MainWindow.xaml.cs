@@ -24,6 +24,21 @@ namespace windowswitcher.app
         {
             InitializeComponent();
             this.txtSearch.Focus();
+            // Didn't find a smoother solution for directly handling a mouseclick on a listviewitem
+            //ToDo: Check if there is a solution which is databound by using Itemstyles? :/
+            EventManager.RegisterClassHandler(typeof(ListBoxItem),
+            ListBoxItem.MouseLeftButtonDownEvent,
+            new RoutedEventHandler(this.MouseLeftButtonDownRoutedEvent));
+
+        }
+
+        private void MouseLeftButtonDownRoutedEvent(object sender, RoutedEventArgs e)
+        {
+            //ToDo: Check if try / catch is needed, pretty hard casting stuff.
+                var IWasClicked = (sender as ListViewItem);
+                var IWasTheWindowClicked = IWasClicked.Content as IWindow;
+                (DataContext as AppViewModel).SelectedWindow = IWasTheWindowClicked;
+                (DataContext as AppViewModel).Activate.Execute(IWasClicked);
         }
 
         private void OnCloseExecuted(object sender, ExecutedRoutedEventArgs e)
