@@ -9,6 +9,7 @@
 
     <SolidColorBrush x:Key="ItemBackground" Color="#21252b"/>
     <SolidColorBrush x:Key="ItemText" Color="#f8f8f0"/>
+    <SolidColorBrush x:Key="ItemText2" Color="#56b6c2"/>
     
     <SolidColorBrush x:Key="SelectedItemBackground" Color="#2c313a"/>
     <SolidColorBrush x:Key="SelectedItemText" Color="#d7dae0"/>

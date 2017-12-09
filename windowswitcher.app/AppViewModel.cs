@@ -117,7 +117,8 @@ namespace windowswitcher.app
                     if (string.IsNullOrWhiteSpace(window.Title)) return true;
                     var terms = SearchText.Split(' ').Select(x => x.ToLower());
                     var title = window.Title.ToLower();
-                    return terms.All(x => title.Contains(x));
+                    var processname = window.ProcessName.ToLower();
+                    return terms.All(x => title.Contains(x) || processname.Contains(x));
                 };
                 SelectedWindow = filtering.CurrentItem as IWindow;
                 return filtering;

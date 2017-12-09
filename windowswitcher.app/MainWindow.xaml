@@ -66,9 +66,9 @@
                   SelectionMode="Single"
                   BorderThickness="0"
                   Background="{DynamicResource ItemBackground}"
-                  Foreground="{DynamicResource ItemText}"
                   ScrollViewer.VerticalScrollBarVisibility="Disabled"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                  HorizontalContentAlignment="Stretch"
                   Opacity="0.8">
             <ListView.Resources>
                 <Style TargetType="{x:Type ListViewItem}">
@@ -86,11 +86,22 @@
             </ListView.InputBindings>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock
-                        Text="{Binding Title}" 
-                        FontSize="18" 
-                        FontWeight="UltraLight"
-                        Margin="0,4"/>
+                    <Grid>
+                        <TextBlock
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Text="{Binding ProcessName}"
+                            Foreground="{DynamicResource ItemText2}"
+                            FontSize="12" 
+                            FontWeight="UltraLight"
+                            Margin="0,4"/>
+                        <TextBlock
+                            Text="{Binding Title}" 
+                            Foreground="{DynamicResource ItemText}"
+                            FontSize="18" 
+                            FontWeight="UltraLight"
+                            Margin="0,4"/>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

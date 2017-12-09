@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Automation;
 
 namespace windowswitcher
@@ -7,6 +8,8 @@ namespace windowswitcher
     public interface IWindow
     {
         string Title { get; }
+
+        string ProcessName { get; }
     }
 
 

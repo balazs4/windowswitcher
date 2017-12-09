@@ -40,5 +40,9 @@ namespace windowswitcher.app
         public static IWindow Create(int number) => new MockWindow { Title = $"{text[number % text.Length]} {number}" };
 
         public string Title { get; private set; }
+
+        public string ProcessName { get; private set; }
+
+        public string FileName { get; private set; }
     }
 }
