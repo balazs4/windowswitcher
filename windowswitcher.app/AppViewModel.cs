@@ -120,6 +120,10 @@ namespace windowswitcher.app
                     var processname = window.ProcessName.ToLower();
                     return terms.All(x => title.Contains(x) || processname.Contains(x));
                 };
+                if (filtering.CurrentItem == null && filtering.IsEmpty == false)
+                {
+                    filtering.MoveCurrentToFirst();
+                }
                 SelectedWindow = filtering.CurrentItem as IWindow;
                 return filtering;
             }
