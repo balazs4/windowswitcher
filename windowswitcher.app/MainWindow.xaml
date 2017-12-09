@@ -9,7 +9,7 @@
         WindowState="Maximized"
         ResizeMode="NoResize"
         WindowStyle="None"
-        AllowsTransparency="True">
+        >
     <Window.Background>
         <SolidColorBrush 
             Color="{DynamicResource Background}"
@@ -88,9 +88,9 @@
                 <DataTemplate>
                     <Grid>
                         <TextBlock
-                            VerticalAlignment="Top"
+                            VerticalAlignment="Center"
                             HorizontalAlignment="Right"
-                            Text="{Binding ProcessName}"
+                            Text="{Binding ProcessName, StringFormat={}// {0}}"
                             Foreground="{DynamicResource ItemText2}"
                             FontSize="12" 
                             FontWeight="UltraLight"
