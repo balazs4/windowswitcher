@@ -26,7 +26,9 @@ namespace windowswitcher
             {
                 var element = AutomationElement.RootElement.FindFirst(TreeScope.Children,
                     new PropertyCondition(AutomationElement.NativeWindowHandleProperty, ((Window)window_in).WindowHandle));
-                (element.GetCurrentPattern(WindowPattern.Pattern) as WindowPattern).SetWindowVisualState(WindowVisualState.Normal);
+                var foo = (element.GetCurrentPattern(WindowPattern.Pattern) as WindowPattern);
+                var foostate = foo.Current.WindowVisualState;
+                foo.SetWindowVisualState(foostate == WindowVisualState.Minimized ? WindowVisualState.Normal : foostate);
                 return;
 
             }
@@ -36,8 +38,9 @@ namespace windowswitcher
               new PropertyCondition(AutomationElement.IsWindowPatternAvailableProperty, true),
               new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Window));
             var FoundWindow = AutomationElement.RootElement.FindFirst(TreeScope.Children, searchcondition);
-            (FoundWindow.GetCurrentPattern(WindowPattern.Pattern) as WindowPattern)
-                .SetWindowVisualState(WindowVisualState.Normal);
+            var bar = (FoundWindow.GetCurrentPattern(WindowPattern.Pattern) as WindowPattern);
+            var barstate = bar.Current.WindowVisualState;
+            bar.SetWindowVisualState(barstate == WindowVisualState.Minimized ? WindowVisualState.Normal : barstate);
 
         }        /// <summary>
                  /// Only Searches under the current Desktop
