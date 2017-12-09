@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:windowswitcher.app">
+    <Color x:Key="Background">#282c34</Color>
+    <SolidColorBrush x:Key="StaticText" Color="#f8f8f0"/>
+
+    <SolidColorBrush x:Key="InputBackground" Color="#1d1f23"/>
+    <SolidColorBrush x:Key="InputText" Color="#f8f8f0"/>
+
+    <SolidColorBrush x:Key="ItemBackground" Color="#21252b"/>
+    <SolidColorBrush x:Key="ItemText" Color="#f8f8f0"/>
+    
+    <SolidColorBrush x:Key="SelectedItemBackground" Color="#2c313a"/>
+    <SolidColorBrush x:Key="SelectedItemText" Color="#d7dae0"/>
+    
+</ResourceDictionary>

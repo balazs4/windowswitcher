@@ -12,7 +12,7 @@
         AllowsTransparency="True">
     <Window.Background>
         <SolidColorBrush 
-            Color="{x:Static SystemParameters.WindowGlassColor}"
+            Color="{DynamicResource Background}"
             Opacity="0.99"/>
     </Window.Background>
     <Window.CommandBindings>
@@ -37,7 +37,7 @@
                    Width="32"
                    Margin="0,0,16,0"/>
                 <TextBlock Text="{Binding Title}"
-                       Foreground="{x:Static SystemColors.ControlTextBrush}"
+                       Foreground="{DynamicResource StaticText}"
                        FontWeight="UltraLight"
                        FontSize="24"
                        />
@@ -50,8 +50,8 @@
                 FontSize="32"
                 FontWeight="Light"
                 BorderThickness="0"
-                Background="{x:Static SystemColors.WindowBrush}"
-                Foreground="{x:Static SystemColors.ControlTextBrush}"
+                Background="{DynamicResource InputBackground}"
+                Foreground="{DynamicResource InputText}"
                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" >
                 <TextBox.InputBindings>
                     <KeyBinding Key="Up" Command="{Binding Path=SelectPrev}" />
@@ -65,11 +65,21 @@
                   SelectedItem="{Binding SelectedWindow}"
                   SelectionMode="Single"
                   BorderThickness="0"
-                  Background="{x:Static SystemParameters.WindowGlassBrush}"
-                  Foreground="{x:Static SystemColors.ControlTextBrush}"
+                  Background="{DynamicResource ItemBackground}"
+                  Foreground="{DynamicResource ItemText}"
                   ScrollViewer.VerticalScrollBarVisibility="Disabled"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                   Opacity="0.8">
+            <ListView.Resources>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="true" >
+                            <Setter Property="Foreground" Value="{DynamicResource SelectedItemText}" />
+                            <Setter Property="Background" Value="{DynamicResource SelectedItemBackground}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.Resources>
             <ListView.InputBindings>
                 <KeyBinding Key="Up" Command="{Binding Path=SelectPrev}" />
                 <KeyBinding Key="Down" Command="{Binding Path=SelectNext}" />
@@ -93,7 +103,7 @@
                             <TextBlock  
                                Opacity="0.2"
                                Text="https://github.com/balazs4/windowswitcher/"
-                               Foreground="{x:Static SystemColors.WindowBrush}"/>
+                               Foreground="{DynamicResource StaticText}"/>
                         </Grid>
                     </ControlTemplate>
                 </Button.Template>
