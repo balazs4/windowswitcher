@@ -9,11 +9,12 @@
         WindowState="Maximized"
         ResizeMode="NoResize"
         WindowStyle="None"
+        AllowsTransparency="True"
         >
     <Window.Background>
         <SolidColorBrush 
             Color="{DynamicResource editor.background}"
-            Opacity="0.99"/>
+            Opacity="0.98"/>
     </Window.Background>
     <Window.CommandBindings>
         <CommandBinding Command="Close" Executed="OnCloseExecuted" />
