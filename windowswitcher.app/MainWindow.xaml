@@ -44,6 +44,7 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1" Margin="2">
+            
             <TextBox
                 Margin="4"
                 Name="txtSearch"
@@ -58,6 +59,13 @@
                     <KeyBinding Key="Down" Command="{Binding Path=SelectNext}" />
                 </TextBox.InputBindings>
             </TextBox>
+            <TextBlock Text="{Binding FilterState}"
+                       Margin="8,4"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Foreground="{DynamicResource activityBar.foreground.brush}"
+                       Opacity="0.4"
+                       />
         </Grid>
         <ListView Grid.Row="2"
                   Margin="2,16"
@@ -115,6 +123,5 @@
                 </Button.Template>
             </Button>
         </Grid>
-
     </Grid>
 </Window>

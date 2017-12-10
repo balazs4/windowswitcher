@@ -48,7 +48,7 @@ namespace windowswitcher.app
             {
                 switcher.ActivateWindow(SelectedWindow);
                 App.Current.Shutdown();
-            },_ => SelectedWindow != null);
+            }, _ => SelectedWindow != null);
 
             OpenLink = new LambdaCommand(_ =>
             {
@@ -57,7 +57,7 @@ namespace windowswitcher.app
 
             SelectPrev = new LambdaCommand(_ =>
             {
-                if(!Windows.MoveCurrentToPrevious())
+                if (!Windows.MoveCurrentToPrevious())
                 {
                     //hacky tracky workaround works :D
                     Windows.MoveCurrentToNext();
@@ -88,6 +88,7 @@ namespace windowswitcher.app
                 searchText = value;
                 RaisePropertyChangedEvent("SearchText");
                 RaisePropertyChangedEvent("Windows");
+                RaisePropertyChangedEvent("FilterState");
             }
         }
 
@@ -129,6 +130,7 @@ namespace windowswitcher.app
             }
         }
 
+        public string FilterState { get { return $"{Windows.OfType<IWindow>().Count()} of {windows.Count}"; } }
 
         public ICommand SelectNext { get; private set; }
 
