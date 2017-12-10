@@ -1,17 +1,200 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:windowswitcher.app">
-    <Color x:Key="Background">#282c34</Color>
-    <SolidColorBrush x:Key="StaticText" Color="#f8f8f0"/>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:local="clr-namespace:windowswitcher.app">
+    <Color x:Key="focusBorder">#528bff</Color>
+    <SolidColorBrush x:Key="focusBorder.brush" Color="{StaticResource focusBorder}"/>
 
-    <SolidColorBrush x:Key="InputBackground" Color="#1d1f23"/>
-    <SolidColorBrush x:Key="InputText" Color="#f8f8f0"/>
+    <Color x:Key="input.background">#1b1d23</Color>
+    <SolidColorBrush x:Key="input.background.brush" Color="{StaticResource input.background}"/>
 
-    <SolidColorBrush x:Key="ItemBackground" Color="#21252b"/>
-    <SolidColorBrush x:Key="ItemText" Color="#f8f8f0"/>
-    <SolidColorBrush x:Key="ItemText2" Color="#56b6c2"/>
-    
-    <SolidColorBrush x:Key="SelectedItemBackground" Color="#2c313a"/>
-    <SolidColorBrush x:Key="SelectedItemText" Color="#d7dae0"/>
-    
+    <Color x:Key="input.border">#181a1f</Color>
+    <SolidColorBrush x:Key="input.border.brush" Color="{StaticResource input.border}"/>
+
+    <Color x:Key="dropdown.background">#353b45</Color>
+    <SolidColorBrush x:Key="dropdown.background.brush" Color="{StaticResource dropdown.background}"/>
+
+    <Color x:Key="dropdown.border">#181a1f</Color>
+    <SolidColorBrush x:Key="dropdown.border.brush" Color="{StaticResource dropdown.border}"/>
+
+    <Color x:Key="list.focusBackground">#2c313a</Color>
+    <SolidColorBrush x:Key="list.focusBackground.brush" Color="{StaticResource list.focusBackground}"/>
+
+    <Color x:Key="list.activeSelectionBackground">#2c313a</Color>
+    <SolidColorBrush x:Key="list.activeSelectionBackground.brush" Color="{StaticResource list.activeSelectionBackground}"/>
+
+    <Color x:Key="list.activeSelectionForeground">#d7dae0</Color>
+    <SolidColorBrush x:Key="list.activeSelectionForeground.brush" Color="{StaticResource list.activeSelectionForeground}"/>
+
+    <Color x:Key="list.inactiveSelectionBackground">#2c313a</Color>
+    <SolidColorBrush x:Key="list.inactiveSelectionBackground.brush" Color="{StaticResource list.inactiveSelectionBackground}"/>
+
+    <Color x:Key="list.inactiveSelectionForeground">#d7dae0</Color>
+    <SolidColorBrush x:Key="list.inactiveSelectionForeground.brush" Color="{StaticResource list.inactiveSelectionForeground}"/>
+
+    <Color x:Key="list.hoverBackground">#2c313a66</Color>
+    <SolidColorBrush x:Key="list.hoverBackground.brush" Color="{StaticResource list.hoverBackground}"/>
+
+    <Color x:Key="list.highlightForeground">#d7dae0</Color>
+    <SolidColorBrush x:Key="list.highlightForeground.brush" Color="{StaticResource list.highlightForeground}"/>
+
+    <Color x:Key="pickerGroup.border">#528bff</Color>
+    <SolidColorBrush x:Key="pickerGroup.border.brush" Color="{StaticResource pickerGroup.border}"/>
+
+    <Color x:Key="button.foreground">#ffffff</Color>
+    <SolidColorBrush x:Key="button.foreground.brush" Color="{StaticResource button.foreground}"/>
+
+    <Color x:Key="button.background">#4d78cc</Color>
+    <SolidColorBrush x:Key="button.background.brush" Color="{StaticResource button.background}"/>
+
+    <Color x:Key="button.hoverBackground">#6087cf</Color>
+    <SolidColorBrush x:Key="button.hoverBackground.brush" Color="{StaticResource button.hoverBackground}"/>
+
+    <Color x:Key="badge.background">#528bff</Color>
+    <SolidColorBrush x:Key="badge.background.brush" Color="{StaticResource badge.background}"/>
+
+    <Color x:Key="badge.foreground">#d7dae0</Color>
+    <SolidColorBrush x:Key="badge.foreground.brush" Color="{StaticResource badge.foreground}"/>
+
+    <Color x:Key="scrollbarSlider.background">#4e566680</Color>
+    <SolidColorBrush x:Key="scrollbarSlider.background.brush" Color="{StaticResource scrollbarSlider.background}"/>
+
+    <Color x:Key="scrollbarSlider.hoverBackground">#5a637580</Color>
+    <SolidColorBrush x:Key="scrollbarSlider.hoverBackground.brush" Color="{StaticResource scrollbarSlider.hoverBackground}"/>
+
+    <Color x:Key="scrollbarSlider.activeBackground">#747d9180</Color>
+    <SolidColorBrush x:Key="scrollbarSlider.activeBackground.brush" Color="{StaticResource scrollbarSlider.activeBackground}"/>
+
+    <Color x:Key="editor.background">#282c34</Color>
+    <SolidColorBrush x:Key="editor.background.brush" Color="{StaticResource editor.background}"/>
+
+    <Color x:Key="editorWidget.background">#21252b</Color>
+    <SolidColorBrush x:Key="editorWidget.background.brush" Color="{StaticResource editorWidget.background}"/>
+
+    <Color x:Key="editor.selectionBackground">#3e4451</Color>
+    <SolidColorBrush x:Key="editor.selectionBackground.brush" Color="{StaticResource editor.selectionBackground}"/>
+
+    <Color x:Key="editorHoverWidget.background">#21252b</Color>
+    <SolidColorBrush x:Key="editorHoverWidget.background.brush" Color="{StaticResource editorHoverWidget.background}"/>
+
+    <Color x:Key="editorHoverWidget.border">#181a1f</Color>
+    <SolidColorBrush x:Key="editorHoverWidget.border.brush" Color="{StaticResource editorHoverWidget.border}"/>
+
+    <Color x:Key="diffEditor.insertedTextBackground">#00809b33</Color>
+    <SolidColorBrush x:Key="diffEditor.insertedTextBackground.brush" Color="{StaticResource diffEditor.insertedTextBackground}"/>
+
+    <Color x:Key="editor.lineHighlightBackground">#2c313a</Color>
+    <SolidColorBrush x:Key="editor.lineHighlightBackground.brush" Color="{StaticResource editor.lineHighlightBackground}"/>
+
+    <Color x:Key="editorCursor.foreground">#528bff</Color>
+    <SolidColorBrush x:Key="editorCursor.foreground.brush" Color="{StaticResource editorCursor.foreground}"/>
+
+    <Color x:Key="editorWhitespace.foreground">#3c4049</Color>
+    <SolidColorBrush x:Key="editorWhitespace.foreground.brush" Color="{StaticResource editorWhitespace.foreground}"/>
+
+    <Color x:Key="editorIndentGuide.background">#3c4049</Color>
+    <SolidColorBrush x:Key="editorIndentGuide.background.brush" Color="{StaticResource editorIndentGuide.background}"/>
+
+    <Color x:Key="editorLineNumber.foreground">#636d83</Color>
+    <SolidColorBrush x:Key="editorLineNumber.foreground.brush" Color="{StaticResource editorLineNumber.foreground}"/>
+
+    <Color x:Key="editorSuggestWidget.background">#21252b</Color>
+    <SolidColorBrush x:Key="editorSuggestWidget.background.brush" Color="{StaticResource editorSuggestWidget.background}"/>
+
+    <Color x:Key="editorSuggestWidget.border">#181a1f</Color>
+    <SolidColorBrush x:Key="editorSuggestWidget.border.brush" Color="{StaticResource editorSuggestWidget.border}"/>
+
+    <Color x:Key="editorSuggestWidget.selectedBackground">#2c313a</Color>
+    <SolidColorBrush x:Key="editorSuggestWidget.selectedBackground.brush" Color="{StaticResource editorSuggestWidget.selectedBackground}"/>
+
+    <Color x:Key="peekViewTitle.background">#1b1d23</Color>
+    <SolidColorBrush x:Key="peekViewTitle.background.brush" Color="{StaticResource peekViewTitle.background}"/>
+
+    <Color x:Key="peekView.border">#528bff</Color>
+    <SolidColorBrush x:Key="peekView.border.brush" Color="{StaticResource peekView.border}"/>
+
+    <Color x:Key="peekViewResult.background">#21252b</Color>
+    <SolidColorBrush x:Key="peekViewResult.background.brush" Color="{StaticResource peekViewResult.background}"/>
+
+    <Color x:Key="peekViewResult.selectionBackground">#2c313a</Color>
+    <SolidColorBrush x:Key="peekViewResult.selectionBackground.brush" Color="{StaticResource peekViewResult.selectionBackground}"/>
+
+    <Color x:Key="peekViewEditor.background">#1b1d23</Color>
+    <SolidColorBrush x:Key="peekViewEditor.background.brush" Color="{StaticResource peekViewEditor.background}"/>
+
+    <Color x:Key="tab.activeBackground">#282c34</Color>
+    <SolidColorBrush x:Key="tab.activeBackground.brush" Color="{StaticResource tab.activeBackground}"/>
+
+    <Color x:Key="tab.inactiveBackground">#21252b</Color>
+    <SolidColorBrush x:Key="tab.inactiveBackground.brush" Color="{StaticResource tab.inactiveBackground}"/>
+
+    <Color x:Key="tab.border">#181a1f</Color>
+    <SolidColorBrush x:Key="tab.border.brush" Color="{StaticResource tab.border}"/>
+
+    <Color x:Key="editorGroup.background">#21252b</Color>
+    <SolidColorBrush x:Key="editorGroup.background.brush" Color="{StaticResource editorGroup.background}"/>
+
+    <Color x:Key="editorGroupHeader.tabsBackground">#21252b</Color>
+    <SolidColorBrush x:Key="editorGroupHeader.tabsBackground.brush" Color="{StaticResource editorGroupHeader.tabsBackground}"/>
+
+    <Color x:Key="editorGroup.border">#181a1f</Color>
+    <SolidColorBrush x:Key="editorGroup.border.brush" Color="{StaticResource editorGroup.border}"/>
+
+    <Color x:Key="statusBar.foreground">#9da5b4</Color>
+    <SolidColorBrush x:Key="statusBar.foreground.brush" Color="{StaticResource statusBar.foreground}"/>
+
+    <Color x:Key="statusBar.background">#21252b</Color>
+    <SolidColorBrush x:Key="statusBar.background.brush" Color="{StaticResource statusBar.background}"/>
+
+    <Color x:Key="statusBar.noFolderBackground">#21252b</Color>
+    <SolidColorBrush x:Key="statusBar.noFolderBackground.brush" Color="{StaticResource statusBar.noFolderBackground}"/>
+
+    <Color x:Key="statusBarItem.hoverBackground">#2c313a</Color>
+    <SolidColorBrush x:Key="statusBarItem.hoverBackground.brush" Color="{StaticResource statusBarItem.hoverBackground}"/>
+
+    <Color x:Key="activityBar.background">#333842</Color>
+    <SolidColorBrush x:Key="activityBar.background.brush" Color="{StaticResource activityBar.background}"/>
+
+    <Color x:Key="activityBar.foreground">#d7dae0</Color>
+    <SolidColorBrush x:Key="activityBar.foreground.brush" Color="{StaticResource activityBar.foreground}"/>
+
+    <Color x:Key="activityBarBadge.background">#528bff</Color>
+    <SolidColorBrush x:Key="activityBarBadge.background.brush" Color="{StaticResource activityBarBadge.background}"/>
+
+    <Color x:Key="activityBarBadge.foreground">#d7dae0</Color>
+    <SolidColorBrush x:Key="activityBarBadge.foreground.brush" Color="{StaticResource activityBarBadge.foreground}"/>
+
+    <Color x:Key="sideBar.background">#21252b</Color>
+    <SolidColorBrush x:Key="sideBar.background.brush" Color="{StaticResource sideBar.background}"/>
+
+    <Color x:Key="sideBarSectionHeader.background">#333842</Color>
+    <SolidColorBrush x:Key="sideBarSectionHeader.background.brush" Color="{StaticResource sideBarSectionHeader.background}"/>
+
+    <Color x:Key="titleBar.activeForeground">#9da5b4</Color>
+    <SolidColorBrush x:Key="titleBar.activeForeground.brush" Color="{StaticResource titleBar.activeForeground}"/>
+
+    <Color x:Key="titleBar.inactiveForeground">#9da5b4</Color>
+    <SolidColorBrush x:Key="titleBar.inactiveForeground.brush" Color="{StaticResource titleBar.inactiveForeground}"/>
+
+    <Color x:Key="titleBar.activeBackground">#21252b</Color>
+    <SolidColorBrush x:Key="titleBar.activeBackground.brush" Color="{StaticResource titleBar.activeBackground}"/>
+
+    <Color x:Key="titleBar.inactiveBackground">#21252b</Color>
+    <SolidColorBrush x:Key="titleBar.inactiveBackground.brush" Color="{StaticResource titleBar.inactiveBackground}"/>
+
+    <Color x:Key="notification.background">#21252b</Color>
+    <SolidColorBrush x:Key="notification.background.brush" Color="{StaticResource notification.background}"/>
+
+    <Color x:Key="statusBar.debuggingForeground">#ffffff</Color>
+    <SolidColorBrush x:Key="statusBar.debuggingForeground.brush" Color="{StaticResource statusBar.debuggingForeground}"/>
+
+    <Color x:Key="extensionButton.prominentBackground">#2ba143</Color>
+    <SolidColorBrush x:Key="extensionButton.prominentBackground.brush" Color="{StaticResource extensionButton.prominentBackground}"/>
+
+    <Color x:Key="extensionButton.prominentHoverBackground">#37af4e</Color>
+    <SolidColorBrush x:Key="extensionButton.prominentHoverBackground.brush" Color="{StaticResource extensionButton.prominentHoverBackground}"/>
+
+
+    <Color x:Key="Keyword">#C678DD</Color>
+    <SolidColorBrush x:Key="Keyword.brush" Color="{StaticResource Keyword}"/>
+
 </ResourceDictionary>

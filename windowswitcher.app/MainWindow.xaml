@@ -12,7 +12,7 @@
         >
     <Window.Background>
         <SolidColorBrush 
-            Color="{DynamicResource Background}"
+            Color="{DynamicResource editor.background}"
             Opacity="0.99"/>
     </Window.Background>
     <Window.CommandBindings>
@@ -37,7 +37,7 @@
                    Width="32"
                    Margin="0,0,16,0"/>
                 <TextBlock Text="{Binding Title}"
-                       Foreground="{DynamicResource StaticText}"
+                       Foreground="{DynamicResource activityBar.foreground.brush}"
                        FontWeight="UltraLight"
                        FontSize="24"
                        />
@@ -50,8 +50,8 @@
                 FontSize="32"
                 FontWeight="Light"
                 BorderThickness="0"
-                Background="{DynamicResource InputBackground}"
-                Foreground="{DynamicResource InputText}"
+                Background="{DynamicResource input.background.brush}"
+                Foreground="{DynamicResource activityBar.foreground.brush}"
                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" >
                 <TextBox.InputBindings>
                     <KeyBinding Key="Up" Command="{Binding Path=SelectPrev}" />
@@ -65,19 +65,14 @@
                   SelectedItem="{Binding SelectedWindow}"
                   SelectionMode="Single"
                   BorderThickness="0"
-                  Background="{DynamicResource ItemBackground}"
+                  Background="{DynamicResource editor.background.brush}"
                   ScrollViewer.VerticalScrollBarVisibility="Disabled"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                   HorizontalContentAlignment="Stretch"
                   Opacity="0.8">
             <ListView.Resources>
                 <Style TargetType="{x:Type ListViewItem}">
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="true" >
-                            <Setter Property="Foreground" Value="{DynamicResource SelectedItemText}" />
-                            <Setter Property="Background" Value="{DynamicResource SelectedItemBackground}" />
-                        </Trigger>
-                    </Style.Triggers>
+                    <Setter Property="Background" Value="{DynamicResource list.activeSelectionBackground.brush}" />
                 </Style>
             </ListView.Resources>
             <ListView.InputBindings>
@@ -91,13 +86,13 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right"
                             Text="{Binding ProcessName, StringFormat={}// {0}}"
-                            Foreground="{DynamicResource ItemText2}"
+                            Foreground="{DynamicResource Keyword.brush}"
                             FontSize="12" 
                             FontWeight="UltraLight"
                             Margin="0,4"/>
                         <TextBlock
                             Text="{Binding Title}" 
-                            Foreground="{DynamicResource ItemText}"
+                            Foreground="{DynamicResource activityBar.foreground.brush}"
                             FontSize="18" 
                             FontWeight="UltraLight"
                             Margin="0,4"/>
@@ -114,7 +109,7 @@
                             <TextBlock  
                                Opacity="0.2"
                                Text="https://github.com/balazs4/windowswitcher/"
-                               Foreground="{DynamicResource StaticText}"/>
+                               Foreground="{DynamicResource activityBar.foreground.brush}"/>
                         </Grid>
                     </ControlTemplate>
                 </Button.Template>
