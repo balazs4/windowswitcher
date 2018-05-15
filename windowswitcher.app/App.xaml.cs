@@ -25,12 +25,15 @@ namespace windowswitcher.app
             appwindow.Show();
         }
     }
-    
+
     public class MockWindowSwitcher : IWindowSwitcher
     {
         public void ActivateWindow(IWindow window_in) => MessageBox.Show("Activate " + window_in.Title);
-    
-        public IEnumerable<IWindow> GetWindows() => Enumerable.Range(0, 123).Select(MockWindow.Create);
+
+        public void GetWindows(Action<IWindow> callback) => Enumerable.Range(0, 123)
+            .Select(MockWindow.Create)
+            .ToList()
+            .ForEach(callback);
     }
 
     public class MockWindow : IWindow

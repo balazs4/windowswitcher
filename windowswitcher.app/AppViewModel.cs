@@ -43,7 +43,12 @@ namespace windowswitcher.app
 
             switcher = _switcher;
             Title = $"windowswitcher v{GetVersion()}";
-            windows = new ObservableCollection<IWindow>(switcher.GetWindows());
+            windows = new ObservableCollection<IWindow>();
+            Task.Run(() =>
+            {
+                switcher.GetWindows(window => System.Windows.Application.Current.Dispatcher.Invoke(() => windows.Add(window)));
+                RaisePropertyChangedEvent("FilterState"); // in order to sync the x of y state...
+            });
             Activate = new LambdaCommand(_ =>
             {
                 switcher.ActivateWindow(SelectedWindow);

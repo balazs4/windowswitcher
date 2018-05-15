@@ -15,10 +15,9 @@ namespace windowswitcher
 
     public interface IWindowSwitcher
     {
-        IEnumerable<IWindow> GetWindows();
+        void GetWindows(Action<IWindow> callback);
 
         void ActivateWindow(IWindow window_in);
-
     }
 
 }

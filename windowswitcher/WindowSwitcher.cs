@@ -42,15 +42,10 @@ namespace windowswitcher
             var barstate = bar.Current.WindowVisualState;
             bar.SetWindowVisualState(barstate == WindowVisualState.Minimized ? WindowVisualState.Normal : barstate);
 
-        }        /// <summary>
-                 /// Only Searches under the current Desktop
-                 /// </summary>
-                 /// <returns></returns>
-        public IEnumerable<IWindow> GetWindows()
+        }        
+        
+        public void GetWindows(Action<IWindow> callback)
         {
-
-            var AllWindows = new List<IWindow>();
-
             //todo check if AutomationElement.RootElement is the destop1???? and if the name Property is what we need :D
             var desktopname = AutomationElement.RootElement.Current.Name;
             Console.WriteLine($"{WindowSwitcherLogDomain} DesktopName {desktopname}");
@@ -71,10 +66,8 @@ namespace windowswitcher
                     ProcessName = process.ProcessName,
                     Title = current.Name
                 };
-                AllWindows.Add(window);
+                callback(window);
             }
-
-            return AllWindows;
         }
     }
 }

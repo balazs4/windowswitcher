@@ -15,7 +15,8 @@ namespace windowswitcher.test
         public void TestGetWindowsUnderCurrentDesktop_GoodCase()
         {
             var Switcher = new WindowSwitcher();
-            var collectiontoCheck= Switcher.GetWindows();
+            var collectiontoCheck = new List<IWindow>();
+            Switcher.GetWindows(collectiontoCheck.Add);
             foreach (var item in collectiontoCheck)
             {
                 Switcher.ActivateWindow(item);
