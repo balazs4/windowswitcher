@@ -6,15 +6,13 @@
         mc:Ignorable="d"
         Title="{Binding Title}"
         WindowStartupLocation="CenterScreen"
-        WindowState="Maximized"
+        WindowState="Normal"
         ResizeMode="NoResize"
         WindowStyle="None"
-        AllowsTransparency="True"
+        AllowsTransparency="False"
         >
     <Window.Background>
-        <SolidColorBrush 
-            Color="{DynamicResource editor.background}"
-            Opacity="0.98"/>
+        <SolidColorBrush Color="{DynamicResource editor.background}"/>
     </Window.Background>
     <Window.CommandBindings>
         <CommandBinding Command="Close" Executed="OnCloseExecuted" />
